@@ -1,4 +1,3 @@
--- plugins/telescope.lua:
 return {
 	{
 		"nvim-telescope/telescope.nvim",
@@ -65,6 +64,56 @@ return {
 				"n",
 				"<leader>fh",
 				"<cmd>Telescope help_tags<cr>",
+				{ noremap = true, silent = true }
+			)
+			vim.api.nvim_set_keymap(
+				"n",
+				"<leader>gf",
+				"<cmd>Telescope git_files<cr>",
+				{ noremap = true, silent = true }
+			)
+			vim.api.nvim_set_keymap(
+				"n",
+				"<leader>gc",
+				"<cmd>Telescope git_commits<cr>",
+				{ noremap = true, silent = true }
+			)
+
+			-- Lists buffer's git commits with diff preview and checks them out on <cr>
+			vim.api.nvim_set_keymap(
+				"n",
+				"<leader>gb",
+				"<cmd>Telescope git_bcommits<cr>",
+				{ noremap = true, silent = true }
+			)
+
+			-- Lists buffer's git commits in a range of lines. Use options from and to to specify the range.
+			-- In visual mode, lists commits for the selected lines
+			-- vim.api.nvim_set_keymap(
+			-- 	"n",
+			-- 	"<leader>gr",
+			-- 	"<cmd>Telescope git_bcommits_range<cr>",
+			-- 	{ noremap = true, silent = true }
+			-- )
+
+			vim.api.nvim_set_keymap(
+				"n",
+				"<leader>gB",
+				"<cmd>Telescope git_branches<cr>",
+				{ noremap = true, silent = true }
+			)
+
+			vim.api.nvim_set_keymap(
+				"n",
+				"<leader>gs",
+				"<cmd>Telescope git_status<cr>",
+				{ noremap = true, silent = true }
+			)
+
+			vim.api.nvim_set_keymap(
+				"n",
+				"<leader>gS",
+				"<cmd>Telescope git_stash<cr>",
 				{ noremap = true, silent = true }
 			)
 		end,

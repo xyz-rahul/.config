@@ -28,7 +28,11 @@ return {
 				file_ignore_patterns = { "node_modules" }, --ignore
 				generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
 				path_display = { "truncate" },
-				pickers = {},
+				pickers = {
+					colorscheme = {
+						enable_preview = true,
+					},
+				},
 				extensions = {
 					fzf = {
 						fuzzy = true, -- false will only do exact matching

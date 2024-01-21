@@ -1,0 +1,5 @@
+tldr
+parallel
+fd
+fzf
+--cask alacritty

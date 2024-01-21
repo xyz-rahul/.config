@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 vim.keymap.set("i", "jj", "<Esc>", { desc = "Map jj to escape in insert mode" })
 
 -- Map leader key followed by "pv" to execute the Ex command
-vim.keymap.set("n", "<C-n>", vim.cmd.Ex, { desc = "open netrw vim default file explorer" })
+vim.keymap.set("n", "<C-e>", vim.cmd.Ex, { desc = "open netrw vim default file explorer" })
 
 -- Visual mode: Move the selected lines down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down in visual mode" })
@@ -46,27 +46,8 @@ vim.keymap.set(
 -- Insert mode: Map Ctrl+C to escape, a commonly used key sequence for leaving insert mode
 vim.keymap.set("i", "<C-c>", "<Esc>", { desc = "Map Ctrl+C to escape in insert mode" })
 
--- Normal mode: Open a new tmux window with tmux-sessionizer
-vim.keymap.set(
-	"n",
-	"<C-f>",
-	"<cmd>silent !tmux neww tmux-sessionizer<CR>",
-	{ desc = "Open new tmux window with tmux-sessionizer" }
-)
-
--- Normal mode: Run LSP formatting on the current file
--- vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = "Run LSP formatting on current file" })
-
 -- Normal mode: Jump to the next location list item and center the screen
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz", { desc = "Jump to next location list item and center the screen" })
-
--- Normal mode: Jump to the previous location list item and center the screen
-vim.keymap.set(
-	"n",
-	"<leader>j",
-	"<cmd>lprev<CR>zz",
-	{ desc = "Jump to previous location list item and center the screen" }
-)
 
 -- Normal mode: Substitute the word under the cursor globally with confirmation
 vim.keymap.set(
@@ -96,17 +77,14 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move visually selecte
 vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<cr>", { desc = "Switch to the previous buffer" })
 vim.keymap.set("n", "<Tab>", "<cmd>bnext<cr>", { desc = "Switch to the next buffer" })
 
--- Save file
-vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<esc><cmd>w<cr>", { desc = "Save the current file" })
-
 -- Clear highlights
 vim.keymap.set("n", "<Esc>", "<cmd>noh<CR>", { desc = "Clear highlights" })
 
 -- Window
 vim.keymap.set("n", "<leader>q", ":bd <CR>", { desc = "Close buffer", remap = true })
 
--- Switch between windows in normal mode
-vim.keymap.set("n", "<C-h>", "<C-W>h", { desc = "Move to the left window" })
-vim.keymap.set("n", "<C-l>", "<C-W>l", { desc = "Move to the right window" })
-vim.keymap.set("n", "<C-j>", "<C-W>j", { desc = "Move to the window below" })
-vim.keymap.set("n", "<C-k>", "<C-W>k", { desc = "Move to the window above" })
+-- -- Switch between windows in normal mode
+-- vim.keymap.set("n", "<C-h>", "<C-W>h", { desc = "Move to the left window" })
+-- vim.keymap.set("n", "<C-l>", "<C-W>l", { desc = "Move to the right window" })
+-- vim.keymap.set("n", "<C-j>", "<C-W>j", { desc = "Move to the window below" })
+-- vim.keymap.set("n", "<C-k>", "<C-W>k", { desc = "Move to the window above" })

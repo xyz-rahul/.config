@@ -22,7 +22,7 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 
 -- Set the undo directory to ~/.vim/undodir
-vim.opt.undodir = vim.fn.stdpath("config") .. "~/ undodir"
+vim.opt.undodir = vim.fn.expand("$HOME") .. "/.vim/undodir"
 
 -- Enable persistent undo by creating undo files
 vim.opt.undofile = true
@@ -49,5 +49,7 @@ vim.opt.isfname:append("@-@")
 -- Set the time in milliseconds for triggering CursorHold events (50ms)
 vim.opt.updatetime = 50
 
+vim.o.termguicolors = true
+
 -- Highlight column 80 to help with code formatting
---vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "80"

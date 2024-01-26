@@ -53,3 +53,13 @@ vim.o.termguicolors = true
 
 -- Highlight column 80 to help with code formatting
 vim.opt.colorcolumn = "80"
+
+vim.o.updatetime = 50
+
+-- show error only in floating box
+vim.diagnostic.config({
+	virtual_text = false,
+	float = {
+		source = "always", -- Or "if_many"
+	},
+})

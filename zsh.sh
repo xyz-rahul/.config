@@ -59,9 +59,27 @@ export FZF_CTRL_R_OPTS="
 # Print tree structure in the preview window
 export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
 
-
+export EDITOR='nvim'
 export GREP_OPTIONS='--color=always'
+
 alias cat='bat -pp --color=always'
-alias ls='ls -1G'
+alias v='nvim'
+
+
+alias f="fzf"
+
+# Always use color output for `ls`
+alias ls="command ls -G"
+
+# List only directories
+alias lsd="ls -lF -G | grep --color=never '^d'"
+
+# Easier directory navigation.
+alias .="cd .."
+alias ..="cd ../.."
+alias ...="cd ../../.."
+alias ....="cd ../../../.."
+alias cd..="cd .." # Typo addressed.
+
 
 echo "zsh config loaded"

@@ -1,9 +1,0 @@
-tldr
-parallel
-fd
-fzf
-koekeishiya/formulae/skhd
---cask alacritty
-
-
-

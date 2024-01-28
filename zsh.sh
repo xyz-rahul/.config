@@ -33,11 +33,11 @@ autoload -Uz vcs_info
 precmd() { vcs_info }
 
 # Format the vcs_info_msg_0_ variable
-zstyle ':vcs_info:git:*' formats '%F{red}%b%f'
+zstyle ':vcs_info:git:*' formats '%B%F{yellow}git:(%F{red} %b %f%F{yellow})%f'
 setopt PROMPT_SUBST
 RPROMPT=\$vcs_info_msg_0_
 
-PROMPT='%F{cyan}%n%f %B%F{blue}%1~%f%b $ '
+PROMPT='%B%F{green}%n%f%b %B%F{blue}%1~%f%b $ '
 
 # FZF
 export FZF_DEFAULT_COMMAND='fd --type f  --hidden --follow --exclude .git'

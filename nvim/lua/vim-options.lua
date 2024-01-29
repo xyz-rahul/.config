@@ -63,3 +63,8 @@ vim.diagnostic.config({
 		source = "always", -- Or "if_many"
 	},
 })
+
+-- highlight cursorline
+vim.opt.cursorline = true
+
+vim.opt.mouse = "a"

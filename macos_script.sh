@@ -8,7 +8,7 @@ brew install koekeishiya/formulae/skhd
 skhd --start-service
 brew install bat
 brew install tree
-
+brew install curlie
 
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Load syntax highlighting

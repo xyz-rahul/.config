@@ -101,4 +101,5 @@ alias cd..="cd .." # Typo addressed.
 alias C="clear"
 
 
+alias curl='curlie'
 echo "zsh config loaded"

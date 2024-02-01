@@ -102,4 +102,14 @@ alias C="clear"
 
 
 alias curl='curlie'
+
+
+# warning: only include on mac
+# Load syntax highlighting
+source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# install for bacward fuzzy search
+# warning: only run one time 
+# $HOMEBREW_PREFIX/opt/fzf/install
+
+
 echo "zsh config loaded"

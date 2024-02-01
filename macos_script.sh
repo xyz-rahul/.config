@@ -10,11 +10,11 @@ brew install bat
 brew install tree
 brew install curlie
 
-source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# Load syntax highlighting
-source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#add to zsh script if on mac
+# # Load syntax highlighting
+# source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#
 # install for bacward fuzzy search
+# warning: only run one time 
 # $HOMEBREW_PREFIX/opt/fzf/install
-
-source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

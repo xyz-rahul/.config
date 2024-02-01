@@ -67,7 +67,17 @@ export FZF_CTRL_R_OPTS="
 export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
 
 bindkey -s "^f" 'fzf^M'
-alias F="fzf"
+alias f="fzf"
+
+fzfcd() {
+    local dir
+    dir=$(fd --type d --hidden | fzf --preview 'tree -C {}')
+    
+    if [ -n "$dir" ]; then
+        cd "$dir" || return
+    fi
+}
+alias F="fzfcd"
 
 export EDITOR='nvim'
 export GREP_OPTIONS='--color=always'

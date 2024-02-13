@@ -1,9 +1,13 @@
 return {
 	{
 
-		"norcalli/nvim-colorizer.lua",
+		"brenoprata10/nvim-highlight-colors",
 		config = function()
-			require("colorizer").setup()
+			require("nvim-highlight-colors").setup({
+				render = "background", -- or 'foreground' or 'first_column'
+				enable_named_colors = true,
+				enable_tailwind = true,
+			})
 		end,
 	},
 }

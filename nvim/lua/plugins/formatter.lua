@@ -32,13 +32,13 @@ return {
 				},
 			},
 
-			format_on_save = function(bufnr)
-				-- Disable with a global or buffer-local variable
-				if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-					return
-				end
-				return { timeout_ms = 1000, lsp_fallback = true, asyn = true }
-			end,
+			-- format_on_save = function(bufnr)
+			-- 	-- Disable with a global or buffer-local variable
+			-- 	if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+			-- 		return
+			-- 	end
+			-- 	return { timeout_ms = 1000, lsp_fallback = true, asyn = true }
+			-- end,
 		})
 
 		vim.api.nvim_create_user_command("FormatDisable", function(args)

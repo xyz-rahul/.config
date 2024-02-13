@@ -6,6 +6,18 @@ bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
 italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
 bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
 
+# mimic alt + f for forward word
+[[keyboard.bindings]]
+key = "F"
+mods = "Command"
+chars = "\u001bf"
+
+# mimic alt + s for backword word
+[[keyboard.bindings]]
+key = "B"
+mods = "Command"
+chars = "\u001bb"
+
 [window]
 # opacity = 0.75
 dynamic_title = true

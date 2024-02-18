@@ -1,7 +1,6 @@
-rcmd - 2: open -a /Applications/Alacritty.app
-# rcmd - 4: open -a "Google Chrome"
-rcmd - 3: open -a /Applications/Google\ Chrome.app
-rcmd - 0: open -a /Applications/Notion.app
+cmd - 2: open -a /Applications/WezTerm.app
+cmd - 3: open -a /Applications/Google\ Chrome.app
+cmd - 0: open -a /Applications/Notion.app
 
 #run skhd --restart-service
 

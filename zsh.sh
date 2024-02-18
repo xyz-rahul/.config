@@ -118,8 +118,8 @@ fi
 LESS_TERMCAP_mb=$'\E[01;31m'
 LESS_TERMCAP_md=$'\E[01;38;5;74m'
 LESS_TERMCAP_me=$'\E[0m'
-LESS_TERMCAP_se=$'\E[0m'
-LESS_TERMCAP_so=$'\E[38;5;246m'
+LESS_TERMCAP_so=$'\E[01;38;5;220;48;5;18m'  # Highlight start: Bold text with yellow foreground (color 220) on dark blue background (color 18)
+LESS_TERMCAP_se=$'\E[0m'                      # Highlight end: Reset text attributes
 LESS_TERMCAP_ue=$'\E[0m'
 LESS_TERMCAP_us=$'\E[04;38;5;146m'
 export LESS_TERMCAP_mb LESS_TERMCAP_md LESS_TERMCAP_me LESS_TERMCAP_se

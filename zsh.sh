@@ -1,26 +1,25 @@
 #!/bin/zsh
-# Install zsh-autosuggestions
-if [ ! -d "$HOME/.zsh/zsh-autosuggestions" ]; then
-    git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.zsh/zsh-autosuggestions
-fi
-    source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-if [ -z "$TMUX" ]
-then
+export PATH="$PATH:$HOME/.config/scripts"
+
+# TMUX session handling
+if [ -z "$TMUX" ]; then
     tmux attach -t TMUX || tmux new -s TMUX
 fi
 
+# zsh-autosuggestions
+if [ ! -d "$HOME/.zsh/zsh-autosuggestions" ]; then
+    git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.zsh/zsh-autosuggestions
+fi
+source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Bind key for autosuggestions
 bindkey '^ ' autosuggest-accept
 
-set_opacity() {
-  if [[ -n "$1" ]]; then
-    alacritty msg config "window.opacity=$1"
-  else
-    echo "Usage: set_opacity <value>"
-  fi
-}
 
-# Configure command history settings
+bindkey -s ^f "tmux-fzf-window\n"
+
+# Command history settings
 HISTSIZE=5000                 # Set maximum number of lines in history
 HISTFILE=~/.zsh_history       # Define the location of the history file
 SAVEHIST=5000                 # Save 5000 lines of history to the file
@@ -33,90 +32,61 @@ setopt hist_save_no_dups      # Save only the most recent instance of a duplicat
 setopt hist_ignore_dups       # Ignore duplicates when searching history
 setopt hist_find_no_dups      # Do not display duplicates when searching history
 
-# Enable case-insensitive completion
+# Load and initialize completion system
 autoload -U compinit && compinit
+# Configure case-insensitive completion matching
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
+# Customize completion menu selection behavior
 zstyle ':completion:*' menu select
 
-#Show git branch in PROMPT
-# Load version control information
+# Show git branch in prompt
 autoload -Uz vcs_info
 precmd() { vcs_info }
-
-# Format the vcs_info_msg_0_ variable
-zstyle ':vcs_info:git:*' formats '%B%F{yellow}git:(%F{red} %b %f%F{yellow})%f'
+zstyle ':vcs_info:git:*' formats '%B%F{yellow}git:(%F{202} %b %f%F{yellow}) %f'
 setopt PROMPT_SUBST
-RPROMPT=\$vcs_info_msg_0_
+PROMPT='%B%F{cyan} %1~%f%b $vcs_info_msg_0_$ '
 
-PROMPT='%B%F{green}%n%f%b %B%F{cyan}%1~%f%b $ '
-
-# FZF
-export FZF_DEFAULT_OPTS="--preview 'bat -n --color=always {}' \
-                        --multi \
-                        --bind 'ctrl-v:execute(nvim {+})+abort,ctrl-p:toggle-preview,ctrl-y:execute-silent(echo {} | pbcopy)'"
 
 export FZF_DEFAULT_COMMAND='fd --type f  --hidden --follow --exclude .git'
-
-# Preview file content using bat (https://github.com/sharkdp/bat)
-export FZF_CTRL_T_OPTS="
-  --preview 'bat -n --color=always {}'
-  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
-  
-# CTRL-/ to toggle small preview window to see the full command
-# CTRL-Y to copy the command into clipboard using pbcopy
 export FZF_CTRL_R_OPTS="
-  --preview 'echo {}' --preview-window up:3:hidden:wrap
-  --bind 'ctrl-p:toggle-preview'
-  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
-  --color header:italic
-  --header 'Press CTRL-Y to copy command into clipboard'"
-
+                      --preview 'echo {}' --preview-window up:3:hidden:wrap
+                      --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+                      --header 'Press CTRL-Y to copy command into clipboard'"
 # Print tree structure in the preview window
+export FZF_ALT_C_COMMAND='fd --type d  --hidden --follow --exclude .git'
 export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
 
-bindkey -s "^f" 'fzf^M'
-alias f="fzf"
 
-fzfcd() {
-    local dir
-    dir=$(fd --type d --hidden | fzf --preview 'tree -C {}')
-    
-    if [ -n "$dir" ]; then
-        cd "$dir" || return
-    fi
-}
-alias F="fzfcd"
-
+# Editor and grep settings
 export EDITOR='nvim'
 export GREP_OPTIONS='--color=always'
-
 alias cat='bat -pp --color=always'
 alias v='nvim'
 
-alias ls="command ls -G"
-
-# List only directories
+# List colors for ls command
+# Uncomment next line if on Mac
+# alias ls="command ls -G"
+export CLICOLOR=1
 alias lsd="ls -lF -G | grep --color=never '^d'"
 
-# Easier directory navigation.
+# Directory navigation aliases
 alias .="cd .."
 alias ..="cd ../.."
 alias ...="cd ../../.."
 alias ....="cd ../../../.."
-alias cd..="cd .." # Typo addressed.
-alias C="clear"
+alias cd..="cd .." # Typo addressed
 
-
+# Other aliases and configurations
 alias curl='curlie'
 
 
 # warning: only include on mac
-# Load syntax highlighting
+# Load syntax highlighting (for Mac)
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# install for bacward fuzzy search
-# warning: only run one time 
+# bacward fuzzy search => run on install
 # $HOMEBREW_PREFIX/opt/fzf/install
+
 
 ################################################################################
 # Colours

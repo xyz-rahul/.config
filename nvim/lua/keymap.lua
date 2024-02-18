@@ -1,5 +1,8 @@
 vim.g.mapleader = " "
 
+-- vim.keymap.set("n", "<C-f>", "<cmd>silent !zsh ~/.config/scripts/tmux-fzf-window<CR>")
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux-fzf-window<CR>")
+
 vim.keymap.set("i", "jj", "<Esc>", { desc = "Map jj to escape in insert mode" })
 
 -- Map leader key followed by "pv" to execute the Ex command

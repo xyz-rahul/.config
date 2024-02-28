@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Find files using fd (better than find), filter with fzf for interactive selection
+selected_files=$( fd . ~/.config ~/dev ~/notes --type f --hidden --exclude .git | fzf --preview "bat -n --color=always {}" )
+
+# If no file is selected, exit gracefully
+if [ -z "$selected_files" ]; then
+    exit 0
+else
+    # Extract directory path from the selected file
+    dir=$(dirname "$selected_files")
+    
+    # Change directory to the path of the selected file and open it in nvim
+    cd "$dir" && nvim "$selected_files"
+fi
+

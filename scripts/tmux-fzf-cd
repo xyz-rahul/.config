@@ -1,0 +1,10 @@
+#!/bin/bash
+
+dir=$(fd . ~/.config ~/dev ~/notes --type d --hidden --exclude .git | fzf )
+if [ -d "$dir" ]; then
+    cd "$dir" && echo "hello" 
+else
+    exit 0
+fi
+
+

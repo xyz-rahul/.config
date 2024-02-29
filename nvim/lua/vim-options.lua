@@ -58,6 +58,8 @@ vim.o.updatetime = 50
 
 -- show error only in floating box
 vim.diagnostic.config({
+	underline = true,
+	severity_sort = true,
 	virtual_text = false,
 	float = {
 		source = "always", -- Or "if_many"

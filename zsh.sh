@@ -17,8 +17,6 @@ source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^ ' autosuggest-accept
 
 
-bindkey -s ^f "tmux-fzf-window\n"
-
 # Command history settings
 HISTSIZE=5000                 # Set maximum number of lines in history
 HISTFILE=~/.zsh_history       # Define the location of the history file
@@ -63,6 +61,7 @@ export EDITOR='nvim'
 export GREP_OPTIONS='--color=always'
 alias cat='bat -pp --color=always'
 alias v='nvim'
+alias db='nvim +DBUI'
 
 # List colors for ls command
 # Uncomment next line if on Mac

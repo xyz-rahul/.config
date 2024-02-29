@@ -84,6 +84,11 @@ end)
 
 config.keys = {
 	{
+		key = "Enter",
+		mods = "CMD",
+		action = wezterm.action.ToggleFullScreen,
+	},
+	{
 		key = "o",
 		mods = "CTRL",
 		action = wezterm.action.EmitEvent("toggle-opacity"),
@@ -98,18 +103,41 @@ config.keys = {
 		mods = "CTRL",
 		action = wezterm.action.EmitEvent("toggle-background"),
 	},
+    --macos treating cmd as alt
 	{
-		key = "t",
+		key = "f",
 		mods = "CMD",
-		action = wezterm.action.SpawnCommandInNewTab({ cwd = wezterm.home_dir }),
+		action = wezterm.action.SendKey({ key = "f", mods = "ALT" }),
 	},
-	{ key = "f", mods = "CMD", action = wezterm.action({ SendString = "\x1bf" }) },
-	{ key = "b", mods = "CMD", action = wezterm.action({ SendString = "\x1bb" }) },
-	{ key = "c", mods = "CMD", action = wezterm.action({ SendString = "\x1bc" }) },
 	{
-		key = "Enter",
+		key = "b",
 		mods = "CMD",
-		action = wezterm.action.ToggleFullScreen,
+		action = wezterm.action.SendKey({ key = "b", mods = "ALT" }),
+	},
+	{
+		key = "c",
+		mods = "CMD",
+		action = wezterm.action.SendKey({ key = "c", mods = "ALT" }),
+	},
+	{
+		key = "h",
+		mods = "CMD",
+		action = wezterm.action.SendKey({ key = "h", mods = "ALT" }),
+	},
+	{
+		key = "j",
+		mods = "CMD",
+		action = wezterm.action.SendKey({ key = "j", mods = "ALT" }),
+	},
+	{
+		key = "k",
+		mods = "CMD",
+		action = wezterm.action.SendKey({ key = "k", mods = "ALT" }),
+	},
+	{
+		key = "l",
+		mods = "CMD",
+		action = wezterm.action.SendKey({ key = "l", mods = "ALT" }),
 	},
 }
 

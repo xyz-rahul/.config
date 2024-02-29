@@ -68,3 +68,5 @@ vim.diagnostic.config({
 vim.opt.cursorline = true
 
 vim.opt.mouse = "a"
+
+vim.opt.foldenable = false

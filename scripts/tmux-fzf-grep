@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-RG_PREFIX="rga --files-with-matches"
+RG_PREFIX="rga --files-with-matches --hidden"
 DIR_LIST="~/notes ~/dev"
 local file
 file="$(
@@ -8,7 +8,10 @@ file="$(
         fzf --sort --preview="[[ ! -z {} ]] && rga --pretty --context 5 {q} {}" \
             --phony -q "$1" \
             --bind "change:reload:$RG_PREFIX {q}  $DIR_LIST" \
-            --preview-window="70%:wrap"
+            --bind ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down \
+            --layout=reverse \
+            --preview-window="wrap:up"
 )" &&
 echo "opening $file" &&
-open "$file"
+# open "$file"
+nvim "$file"

@@ -4,7 +4,7 @@ return {
 	config = function()
 		require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
 
-		vim.keymap.set({ "v", "n" }, "f", ":HopWord<CR>", { desc = "hop to word" })
+		vim.keymap.set({ "v", "n" }, "f", "<cmd>HopWord<CR>", { desc = "hop to word" })
 		vim.cmd("hi HopNextKey guifg=#ff9900")
 		vim.cmd("hi HopNextKey1 guifg=#ff9900")
 		vim.cmd("hi HopNextKey2 guifg=#ff9900")

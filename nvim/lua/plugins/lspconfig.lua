@@ -21,11 +21,10 @@ return {
 			keymap.set("n", "<leader>rn", vim.lsp.buf.rename) -- smart rename
 			keymap.set("n", "<space>D", vim.lsp.buf.type_definition)
 
-			keymap.set("n", "<space>dd", vim.diagnostic.open_float)
-			keymap.set("n", "<space>de", vim.diagnostic.open_float)
-			keymap.set("n", "[d", vim.diagnostic.goto_prev)
-			keymap.set("n", "]d", vim.diagnostic.goto_next)
-			keymap.set("n", "<space>dl", vim.diagnostic.setloclist)
+			keymap.set("n", "<space>ee", vim.diagnostic.open_float)
+			keymap.set("n", "[e", vim.diagnostic.goto_prev)
+			keymap.set("n", "]e", vim.diagnostic.goto_next)
+			keymap.set("n", "<space>el", vim.diagnostic.setloclist)
 			keymap.set("n", "K", vim.lsp.buf.hover) -- show documentation for what is under cursor
 			keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
 		end

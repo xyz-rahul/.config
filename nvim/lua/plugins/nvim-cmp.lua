@@ -8,6 +8,7 @@ return {
 		"saadparwaiz1/cmp_luasnip", -- for autocompletion
 		"rafamadriz/friendly-snippets", -- useful snippets
 		"onsails/lspkind.nvim", -- vs-code like pictograms
+		"kristijanhusak/vim-dadbod-completion",
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -29,8 +30,8 @@ return {
 				end,
 			},
 			mapping = cmp.mapping.preset.insert({
-				["<S-Tab>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-				["<Tab>"] = cmp.mapping.select_next_item(), -- next suggestion
+				["<C-p>"] = cmp.mapping.select_prev_item(), -- previous suggestion
+				["<C-n>"] = cmp.mapping.select_next_item(), -- next suggestion
 				["<C-d>"] = cmp.mapping.scroll_docs(-4),
 				["<C-u>"] = cmp.mapping.scroll_docs(4),
 				["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
@@ -43,6 +44,7 @@ return {
 				{ name = "luasnip" }, -- snippets
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths
+				{ name = "vim-dadbod-completion" }, -- add new source
 			}),
 			-- configure lspkind for vs-code like pictograms in completion menu
 			formatting = {
